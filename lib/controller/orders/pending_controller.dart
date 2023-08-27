@@ -46,13 +46,13 @@ class PendingOrdersControllerImp extends PendingOrdersController
    
      statusRequs = StatusRequst.loading;
       update();
-       
+      
   if(await checkinternet() )
   {   
     
      var res = await PendingOrdersData().getData(
       myServices.sharedPreferences.getString("id")!);
-    
+     
       if(res == null)
       {
         
@@ -62,6 +62,7 @@ class PendingOrdersControllerImp extends PendingOrdersController
      else if(res["status"] =="success")
      {
       List osrder =res["data"];
+      data.clear();
       data.addAll(osrder.map((e) => OrdersModels.fromJson(e)));
       statusRequs =StatusRequst.sucsess;
       
@@ -71,6 +72,9 @@ class PendingOrdersControllerImp extends PendingOrdersController
     }
    update(); 
   
+  }
+  refreshOrder(){
+    view();
   }
   @override
   void onInit() {
