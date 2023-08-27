@@ -9,7 +9,7 @@ import '../widget/myfavorite/custome_favorite_item.dart';
 
 class MyFavorite extends StatelessWidget {
   const MyFavorite({super.key});
- static final String myFavoriteId = "/myFavoriteId";
+ static const String myFavoriteId = "/myFavoriteId";
   @override
   Widget build(BuildContext context) {
     Get.put(MyFavoritControllerImp());
@@ -18,7 +18,13 @@ class MyFavorite extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: GetBuilder<MyFavoritControllerImp>(builder:(controller) => ListView(
           children: [
-            // CustomAppBar(titlAppbar: "Find Product", onPressedIconeFavorite: (){},),
+            //  CustomAppBar(titlAppbar: "Find Product", onPressedIconenotifi: (){
+            //    Get.toNamed(NotificationPage.notificationId);
+            // },
+            // onPressedSearch:(){controller.onsearchItem();} ,
+            // searchController: controller.search!,
+            // onChanged: (val)=> controller.checkSearch(val),
+            // ),
             SizedBox(height: 20,),
              HandlingDataView(
         statusRequs: controller.statusRequs, widget:

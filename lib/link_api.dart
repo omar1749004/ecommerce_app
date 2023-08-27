@@ -42,3 +42,5 @@ const String linkCheckout ="$linkServerName/orders/checkout.php";
 //orders
 const String linkPendingOrder ="$linkServerName/orders/pending.php";
 const String linkArchiveOrder ="$linkServerName/orders/archive.php";
+//notification
+const String linkNotifi ="$linkServerName/notification.php";

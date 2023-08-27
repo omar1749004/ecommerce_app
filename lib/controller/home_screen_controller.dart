@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:e_commerce_app/views/screen/home.dart';
+
+import 'package:e_commerce_app/views/screen/notifi_page.dart';
 import 'package:e_commerce_app/views/screen/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +22,7 @@ class HomeScreenControllerImp extends HomeScreenController
    List<Widget> listPage =[
     const HomePage(),
     Center(child: Text("Profile")),
-    Center(child: Text("Fav")),
+    NotificationPage(),
     Settings(),
    ];
     List<Map> bottomAppBar=[
@@ -35,7 +37,7 @@ class HomeScreenControllerImp extends HomeScreenController
       
       {
         "title"  : "favorite",
-        "icon"   :Icons.favorite
+        "icon"   :Icons.notifications_active_outlined
       },{
         "title"  : "setting",
         "icon"   :Icons.settings
