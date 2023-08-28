@@ -32,7 +32,11 @@ class OrdersPending extends StatelessWidget {
           ListView.builder(
             itemCount: controller.data.length,
           itemBuilder: (context, index) => 
-          CardOrders(ordersModels: controller.data[index],)
+          CardOrders(ordersModels: controller.data[index],
+          // onPressed: (){
+          //   Get.toNamed(OrderDetails.orderDetailsid);
+          // },
+          )
           )),
       ),),
     );

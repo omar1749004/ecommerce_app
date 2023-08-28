@@ -18,6 +18,7 @@ import 'package:e_commerce_app/views/screen/language.dart';
 import 'package:e_commerce_app/views/screen/myfavorite.dart';
 import 'package:e_commerce_app/views/screen/notifi_page.dart';
 import 'package:e_commerce_app/views/screen/onboarding.dart';
+import 'package:e_commerce_app/views/screen/orders/details.dart';
 import 'package:e_commerce_app/views/screen/orders/pending.dart';
 import 'package:e_commerce_app/views/screen/product_details.dart';
 
@@ -58,6 +59,8 @@ GetPage(name: AdressAddDetails.adressAddDetailsid, page: ()=> const AdressAddDet
 GetPage(name: CheckOut.checkOutid, page: ()=> const CheckOut()),
 //orders 
 GetPage(name: OrdersPending.ordersPendingid, page: ()=> const OrdersPending()),
+GetPage(name: OrderDetails.orderDetailsid, page: ()=> const OrderDetails()),
+
 //notification
 GetPage(name: NotificationPage.notificationId, page: ()=> const NotificationPage()),
   

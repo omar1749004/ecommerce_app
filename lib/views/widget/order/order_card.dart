@@ -1,13 +1,16 @@
 import 'package:e_commerce_app/controller/orders/pending_controller.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:e_commerce_app/data/models/orders_model.dart';
+import 'package:e_commerce_app/views/screen/orders/details.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:jiffy/jiffy.dart';
 
 class CardOrders extends GetView<PendingOrdersControllerImp> {
-  const CardOrders({super.key, required this.ordersModels});
+  const CardOrders({ super.key, required this.ordersModels,});
   final OrdersModels ordersModels;
+
   @override
   Widget build(BuildContext context) {
     return  Card(child: Container(
@@ -41,7 +44,11 @@ class CardOrders extends GetView<PendingOrdersControllerImp> {
              const Spacer(),
               MaterialButton(
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                onPressed: (){}, 
+                onPressed: (){
+                  Get.toNamed(OrderDetails.orderDetailsid, arguments: {
+                    "ordersModel" :ordersModels
+                  });
+                }, 
                 color: const Color.fromARGB(255, 195, 159, 250),
                child:const Text("Details",style: TextStyle(color: ColorApp.secondColor),),
                
