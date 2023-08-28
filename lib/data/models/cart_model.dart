@@ -11,11 +11,11 @@ class CartModel {
   int itemDescound;
   String itemDate;
   int itemC;
-
   int cartid;
   int cartuserid;
   int cartitemsid;
 
+  
   CartModel(
       {
  
@@ -33,7 +33,8 @@ class CartModel {
       required this.itemC,
       required this.cartid,
       required this.cartitemsid,
-      required this.cartuserid
+      required this.cartuserid,
+      
       });
 
   factory CartModel.fromjsone(Map<String, dynamic> json) {
@@ -55,6 +56,8 @@ class CartModel {
       cartid:json['cart_id'],
       cartitemsid: json['cart_userid'],
       cartuserid: json['cart_itemsid'],
+      
+      
     );
   }
 }

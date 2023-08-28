@@ -10,6 +10,12 @@ class OrdersModels {
   String ordersDate;
   int ordersPaymentmethod;
   int ordersStatuse;
+   int? addressid;
+  String? name;
+  String? city;
+  String? street;
+  double? lat;
+  double? long;
 
   OrdersModels(
       {required this.ordersId,
@@ -22,7 +28,14 @@ class OrdersModels {
      required this.ordersCoupon,
      required this.ordersDate,
      required this.ordersPaymentmethod,
-     required this.ordersStatuse});
+     required this.ordersStatuse,
+      this.addressid,
+       this.name,
+       this.city,
+       this.street,
+       this.lat,
+       this.long,
+     });
 
   factory OrdersModels.fromJson(Map<String, dynamic> json) {
 
@@ -38,6 +51,12 @@ class OrdersModels {
     ordersDate : json['orders_date'],
     ordersPaymentmethod : json['orders_paymentmethod'],
     ordersStatuse : json['orders_statuse'],
+    addressid: json["address_id"],
+       name: json["address_name"],
+        city: json["address_city"],
+        street: json["address_street"],
+        lat: json["address_lat"],
+        long: json["address_long"],
    );
   }
 }
