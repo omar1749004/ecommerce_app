@@ -2,6 +2,7 @@ import 'package:e_commerce_app/controller/settings_controller.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:e_commerce_app/core/constant/image_asset.dart';
 import 'package:e_commerce_app/views/address/view.dart';
+import 'package:e_commerce_app/views/screen/orders/archive.dart';
 import 'package:e_commerce_app/views/screen/orders/pending.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -48,7 +49,7 @@ class Settings extends StatelessWidget {
               Divider(),
              ListTile(title: Text("Archive"),
              onTap: (){
-              Get.toNamed(AddressView.addressViewid);
+              Get.toNamed(OrdersArchive.ordersArchiveid);
              },
               trailing: Icon(Icons.card_travel_outlined)),
             Divider(),

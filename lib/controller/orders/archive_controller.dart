@@ -2,15 +2,15 @@
 import 'package:e_commerce_app/core/functions/checkinternet.dart';
 import 'package:e_commerce_app/core/services/services.dart';
 import 'package:e_commerce_app/data/models/orders_model.dart';
-import 'package:e_commerce_app/data/service/remote/orsers/pending_data.dart';
+import 'package:e_commerce_app/data/service/remote/orsers/archive_data.dart';
 import 'package:get/get.dart';
 
-abstract class PendingOrdersController extends GetxController
+abstract class ArchiveOrdersController extends GetxController
 {
 
   view();
 }
-class PendingOrdersControllerImp extends PendingOrdersController
+class ArchiveOrdersControllerImp extends ArchiveOrdersController
 {
 
   MyServices myServices =Get.find();
@@ -52,7 +52,7 @@ class PendingOrdersControllerImp extends PendingOrdersController
   if(await checkinternet() )
   {   
     
-     var res = await PendingOrdersData().getData(
+     var res = await AchiveOrdersData().getData(
       myServices.sharedPreferences.getString("id")!);
      
       if(res == null)
@@ -75,45 +75,9 @@ class PendingOrdersControllerImp extends PendingOrdersController
    update(); 
   
   }
-   deleteOrder(int orderid) async{
-   
-     statusRequs = StatusRequst.loading;
-      update();
-      
-  if(await checkinternet() )
-  {   
-    
-     var res = await PendingOrdersData().deleteData(
-      orderid.toString()
-      );
-     
-      if(res == null)
-      {
-        
-        statusRequs = StatusRequst.failure;
-        
-      }
-     else if(res["status"] =="success")
-     {
-      data.removeWhere((element) => element.ordersId ==orderid );
-      update(); 
-      statusRequs =StatusRequst.sucsess;
-      
-     }else{
-      statusRequs = StatusRequst.sucsess;
-     }  
-    }
-   update(); 
-  
-  }
-  refreshOrder(){
-    view();
-  }
   @override
   void onInit() {
-    
     view();
     super.onInit();
   }
-  
 }
