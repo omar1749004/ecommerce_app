@@ -4,7 +4,7 @@ import 'package:e_commerce_app/data/models/orders_model.dart';
 import 'package:e_commerce_app/views/screen/orders/details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
+
 import 'package:jiffy/jiffy.dart';
 
 class CardOrders extends GetView<PendingOrdersControllerImp> {
