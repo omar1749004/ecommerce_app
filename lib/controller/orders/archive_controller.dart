@@ -75,6 +75,35 @@ class ArchiveOrdersControllerImp extends ArchiveOrdersController
    update(); 
   
   }
+  submitRating(double rating ,String comment, String orderid)async{
+       
+     statusRequs = StatusRequst.loading;
+      update();
+      
+  if(await checkinternet() )
+  {   
+    
+     var res = await AchiveOrdersData().rating(
+      orderid ,rating.toString() ,comment);
+     
+      if(res == null)
+      {
+        
+        statusRequs = StatusRequst.failure;
+        
+      }
+     else if(res["status"] =="success")
+     {
+      
+      statusRequs =StatusRequst.sucsess;
+      
+     }else{
+     
+      statusRequs = StatusRequst.sucsess;
+     }  
+    }
+   update(); 
+  }
   @override
   void onInit() {
     view();

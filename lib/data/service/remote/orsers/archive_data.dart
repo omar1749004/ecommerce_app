@@ -11,4 +11,12 @@ class AchiveOrdersData
     });
     return res;
   }
+  rating(String orderid ,String rating, String ratingNote)async{
+    var res =await Api().post(uri: linkRatingOrder, body: {
+      "orderid" :orderid ,
+      "rating" : rating ,
+      "ratingNote" :ratingNote
+    });
+    return res;
+  }
 }

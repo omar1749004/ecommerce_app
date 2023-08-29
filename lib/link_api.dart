@@ -44,6 +44,7 @@ const String linkPendingOrder ="$linkServerName/orders/pending.php";
 const String linkArchiveOrder ="$linkServerName/orders/archive.php";
 const String linkDetailsOrder ="$linkServerName/orders/detail.php";
 const String linkDeleteOrder ="$linkServerName/orders/delete.php";
+const String linkRatingOrder ="$linkServerName/orders/rating_order.php";
 
 //notification
 const String linkNotifi ="$linkServerName/notification.php";

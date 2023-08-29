@@ -10,6 +10,8 @@ class OrdersModels {
   String ordersDate;
   int ordersPaymentmethod;
   int ordersStatuse;
+  int rating ;
+  String? noteRating;
    int? addressid;
   String? name;
   String? city;
@@ -29,6 +31,8 @@ class OrdersModels {
      required this.ordersDate,
      required this.ordersPaymentmethod,
      required this.ordersStatuse,
+     required this.rating,
+      this.noteRating,
       this.addressid,
        this.name,
        this.city,
@@ -51,6 +55,8 @@ class OrdersModels {
     ordersDate : json['orders_date'],
     ordersPaymentmethod : json['orders_paymentmethod'],
     ordersStatuse : json['orders_statuse'],
+    rating :json['orders_rating'],
+    noteRating : json['orders_ratingnote'],
     addressid: json["address_id"],
        name: json["address_name"],
         city: json["address_city"],
