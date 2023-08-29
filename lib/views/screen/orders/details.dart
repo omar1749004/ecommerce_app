@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/controller/orders/detail_controller.dart';
+import 'package:e_commerce_app/core/class/handle_data.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,7 +9,7 @@ class OrderDetails extends StatelessWidget {
   static const orderDetailsid = "/orderDetailsid";
   @override
   Widget build(BuildContext context) {
-    OrderDetailsController controller = Get.put(OrderDetailsController());
+     Get.put(OrderDetailsController());
     return Scaffold(
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
@@ -21,7 +22,8 @@ class OrderDetails extends StatelessWidget {
       ),
       body: Container(
         padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        child: ListView(
+        child: GetBuilder<OrderDetailsController>(builder: (controller)=> 
+        HandlingDataView(statusRequs: controller.statusRequs, widget: ListView(
           children: [
             Card(
               child: Padding(
@@ -53,27 +55,32 @@ class OrderDetails extends StatelessWidget {
                                 fontWeight: FontWeight.bold),
                           ),
                         ]),
+                        ...List.generate(controller.data.length, (index) =>
                         TableRow(children: [
-                          Text(
-                            "Macbook",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(height: 2),
-                          ),
-                          Text("2",
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "${controller.data[index].itemName}",
                               textAlign: TextAlign.center,
-                              style: TextStyle(height: 2)),
-                          Text("900",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(height: 2)),
-                        ]),
-                        TableRow(children: [
-                          Text(
-                            "Iphone",
-                            textAlign: TextAlign.center,
+                            ),
                           ),
-                          Text("5", textAlign: TextAlign.center),
-                          Text("3444", textAlign: TextAlign.center),
-                        ]),
+                          
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "${controller.data[index].itemsCount}",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              "${controller.data[index].itemPrice}",
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ]), )
+                        
                       ],
                     ),
                     SizedBox(
@@ -82,7 +89,7 @@ class OrderDetails extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.symmetric(vertical: 10),
                       child: Text(
-                        "Total Price : 2400\$",
+                        "Total Price : ${controller.ordersModels.ordersTotalprice}\$",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                             color: ColorApp.KPrimaryColor,
@@ -110,7 +117,7 @@ class OrderDetails extends StatelessWidget {
                 )),
               ),
           ],
-        ),
+        ),))
       ),
     );
   }
