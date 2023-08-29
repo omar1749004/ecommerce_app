@@ -94,9 +94,10 @@ initialData(){
        "selectedCat" : selectCat
     });
   }
-  gotoProductDetails(ItemsModel) {
+  gotoProductDetails(ItemsModel itemsModel) {
+    print(itemsModel.itemPriceDiscound);
     Get.toNamed(ProductDetails.productDetailsId,arguments: {
-        "itemsModel"  : ItemsModel
+        "itemsModel"  : itemsModel
     });
   }
   

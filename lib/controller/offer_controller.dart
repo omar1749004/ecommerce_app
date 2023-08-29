@@ -1,15 +1,18 @@
+import 'package:e_commerce_app/controller/home_controller.dart';
 import 'package:e_commerce_app/core/class/statuscode.dart';
 import 'package:e_commerce_app/core/functions/checkinternet.dart';
 import 'package:e_commerce_app/core/services/services.dart';
 import 'package:e_commerce_app/data/models/item_model.dart';
 import 'package:e_commerce_app/data/service/remote/offers_data.dart';
+
 import 'package:get/get.dart';
 
-class OffersController extends GetxController
+class OffersController extends SearchMixController
 {
     List<ItemsModel> items =[];
     late StatusRequst statusRequs;
      MyServices myServices = Get.find(); 
+    
 
    getItems() async{
     items.clear();
@@ -48,6 +51,7 @@ class OffersController extends GetxController
   @override
   void onInit() {
     getItems();
+  
     super.onInit();
   }
 }
