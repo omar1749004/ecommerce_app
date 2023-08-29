@@ -8,12 +8,13 @@ Future<bool>alertExiteApp(){
     title :"Woring",
     middleText: "Do You Want Exit App", 
     actions: [
-      ElevatedButton(onPressed: (){
-        exit(0);
-      }, child: Text("Yes")),
-      ElevatedButton(onPressed: (){
+      ElevatedButton(
+        onPressed: (){
         Get.back();
-      }, child: Text("No"))
+      }, child:const Text("cancel")),
+       ElevatedButton(onPressed: (){
+        exit(0);
+      }, child:const Text("ok")),
     ]
   );
    return Future.value(true);

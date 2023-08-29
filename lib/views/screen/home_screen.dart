@@ -1,4 +1,5 @@
 
+import 'package:e_commerce_app/core/functions/alert_exite_app.dart';
 import 'package:e_commerce_app/views/screen/cart_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,9 @@ class HomeScreen extends StatelessWidget {
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
             bottomNavigationBar: CustomAppBar(),
-            body: controller.listPage.elementAt(controller.currentPage),
+            body: WillPopScope(
+              child:  controller.listPage.elementAt(controller.currentPage),
+               onWillPop: alertExiteApp)
           )),
     );
   }
