@@ -11,4 +11,10 @@ class PendingOrdersData
     });
     return res;
   }
+  deleteData(String orderid)async{
+    var res =await Api().post(uri: linkDeleteOrder, body: {
+      "id" :orderid
+    });
+    return res;
+  }
 }

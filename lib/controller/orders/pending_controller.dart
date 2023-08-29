@@ -38,7 +38,7 @@ class PendingOrdersControllerImp extends PendingOrdersController
 
   }
   
-
+  
 
 
    @override
@@ -64,6 +64,37 @@ class PendingOrdersControllerImp extends PendingOrdersController
       List osrder =res["data"];
       data.clear();
       data.addAll(osrder.map((e) => OrdersModels.fromJson(e)));
+      statusRequs =StatusRequst.sucsess;
+      
+     }else{
+      statusRequs = StatusRequst.sucsess;
+     }  
+    }
+   update(); 
+  
+  }
+   deleteOrder(int orderid) async{
+   
+     statusRequs = StatusRequst.loading;
+      update();
+      
+  if(await checkinternet() )
+  {   
+    
+     var res = await PendingOrdersData().deleteData(
+      orderid.toString()
+      );
+     
+      if(res == null)
+      {
+        
+        statusRequs = StatusRequst.failure;
+        
+      }
+     else if(res["status"] =="success")
+     {
+      data.removeWhere((element) => element.ordersId ==orderid );
+      update(); 
       statusRequs =StatusRequst.sucsess;
       
      }else{

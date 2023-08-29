@@ -52,7 +52,17 @@ class CardOrders extends GetView<PendingOrdersControllerImp> {
                 color: const Color.fromARGB(255, 195, 159, 250),
                child:const Text("Details",style: TextStyle(color: ColorApp.secondColor),),
                
-              )
+              ),
+              SizedBox(width: 10,),
+              if(ordersModels.ordersStatuse == 0) IconButton(
+                
+                onPressed: (){
+                  controller.deleteOrder(ordersModels.ordersId);
+                 }, 
+                color: Colors.red,
+               icon: Icon(Icons.delete_outline_outlined)),
+               
+              
             ],
           )
        ]),),);
