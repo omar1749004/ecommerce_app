@@ -82,9 +82,7 @@ class FavoriteControllerImp extends FavoriteController
      }else{
       
       statusRequs = StatusRequst.failure;
-      
 
-     
      }  
     } 
   }

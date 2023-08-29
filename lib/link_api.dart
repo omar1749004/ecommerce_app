@@ -47,3 +47,5 @@ const String linkDeleteOrder ="$linkServerName/orders/delete.php";
 
 //notification
 const String linkNotifi ="$linkServerName/notification.php";
+//offers
+const String linkOffer ="$linkServerName/offer_page.php";

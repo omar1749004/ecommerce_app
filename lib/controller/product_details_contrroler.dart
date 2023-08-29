@@ -45,7 +45,7 @@ class ProductDetailsControllerImp extends ProductDetailsController
     
       if(res == null)
       {
-        print("hllo");
+       
         statusRequs = StatusRequst.failure;
         
       }

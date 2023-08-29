@@ -2,6 +2,7 @@ import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:e_commerce_app/views/screen/home.dart';
 
 import 'package:e_commerce_app/views/screen/notifi_page.dart';
+import 'package:e_commerce_app/views/screen/offers_page.dart';
 import 'package:e_commerce_app/views/screen/setting_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class HomeScreenControllerImp extends HomeScreenController
   int currentPage =0;
    List<Widget> listPage =[
     const HomePage(),
-    Center(child: Text("Profile")),
+    OffersPage(),
     NotificationPage(),
     Settings(),
    ];

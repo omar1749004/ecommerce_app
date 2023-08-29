@@ -12,38 +12,52 @@ class NotificationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(NotificationController());
     return Scaffold(
-      body: GetBuilder<NotificationController>(builder:(controller) => HandlingDataView(
-        statusRequs:controller.statusRequs, widget: Container(
-        padding:  EdgeInsets.all(10),
-        child: ListView(children: [
-          Center(child: Text("Notification" ,style: TextStyle(
-            fontSize: 18,color: ColorApp.KPrimaryColor,
-            fontWeight: FontWeight.bold
-            ),),),
-            SizedBox(height: 10,),
-            ...List.generate(controller.data.length, (index) =>
-             Container(
-              margin: EdgeInsets.symmetric(vertical: 5),
-               child: Stack(
-                 children:[ ListTile(
-                  title: Text(controller.data[index]["notification_title"]),
-                  subtitle: Text(controller.data[index]["notification_body"]),
-                   
-                 ),
-                 Positioned(
-                  right: 5,
-                  top: 10,
-                  child: Text(Jiffy.parse(
-                 controller.data[index]["notification_date"], 
-                 pattern: 'yyyy-MM-dd HH:mm:ss').fromNow(),style: TextStyle(
-                  color: ColorApp.KPrimaryColor,
-                   fontWeight: FontWeight.bold
-                  ),),)
-                 ]
-               ),
-             ))
-        ]),
-      ),),)
-    );
+        appBar: AppBar(
+          title:  Text(
+              "Notification",
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ),
+        
+        body: GetBuilder<NotificationController>(
+          builder: (controller) => HandlingDataView(
+            statusRequs: controller.statusRequs,
+            widget: Container(
+              padding: EdgeInsets.all(10),
+              child: ListView(children: [
+                const SizedBox(
+                  height: 10,
+                ),
+                ...List.generate(
+                    controller.data.length,
+                    (index) => Container(
+                          margin: EdgeInsets.symmetric(vertical: 5),
+                          child: Stack(children: [
+                            ListTile(
+                              title: Text(
+                                  controller.data[index]["notification_title"]),
+                              subtitle: Text(
+                                  controller.data[index]["notification_body"]),
+                            ),
+                            Positioned(
+                              right: 5,
+                              top: 10,
+                              child: Text(
+                                Jiffy.parse(
+                                        controller.data[index]
+                                            ["notification_date"],
+                                        pattern: 'yyyy-MM-dd HH:mm:ss')
+                                    .fromNow(),
+                                style: TextStyle(
+                                    color: ColorApp.KPrimaryColor,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )
+                          ]),
+                        ))
+              ]),
+            ),
+          ),
+        ));
   }
 }
