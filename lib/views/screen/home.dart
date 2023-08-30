@@ -36,10 +36,11 @@ class HomePage extends StatelessWidget {
         statusRequs: controller.statusRequs, widget:
           controller.isSearch ? 
         ListItemsSearch(searchItem: controller.searchItem,)
-          : const Column(
+          :  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
-               CustomCardHome(title: "A Summer Surprice", body: "Cashback 20%"),
+             if(controller.setting["setting_title"] !=null)
+               CustomCardHome(title: controller.setting["setting_title"], body: controller.setting["setting_body"]),
             CustomeTitleHome(title: "Categories",),
              SizedBox(height: 20,),
             ListCategories(),

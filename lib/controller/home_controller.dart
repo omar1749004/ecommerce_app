@@ -22,7 +22,7 @@ class HomeContrllerImp extends HomeContrller
       String? lang ;
      List<CetegoriesModel> categories =[];
      List<ItemsModel> items =[];
-     
+     Map setting = {};
  late StatusRequst statusRequs;
 
 @override
@@ -55,7 +55,7 @@ class HomeContrllerImp extends HomeContrller
            items.add(ItemsModel.fromjsone(res["items"]["data"][i]) );
 
       }
-      
+      setting = res["setting"]["data"][0] ;
       statusRequs =StatusRequst.sucsess;
       
      }else{

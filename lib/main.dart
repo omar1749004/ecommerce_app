@@ -6,7 +6,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'core/localization/change_lacal.dart';
 import 'core/localization/translition.dart';
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {}
