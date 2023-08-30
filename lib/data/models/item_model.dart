@@ -11,7 +11,7 @@ class ItemsModel {
   int itemDescound;
   String itemDate;
   int itemC;
-  String cName;
+  String ?cName;
   int favorite ;
   String itemPriceDiscound;
   ItemsModel(

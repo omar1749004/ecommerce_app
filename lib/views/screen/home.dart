@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
             CustomeTitleHome(title: "Categories",),
              SizedBox(height: 20,),
             ListCategories(),
-            CustomeTitleHome(title: "Product for you",),
+            CustomeTitleHome(title: "Top Selling",),
              SizedBox(height: 10,),
             ListItemHome() ,
             CustomeTitleHome(title: "Offers",),

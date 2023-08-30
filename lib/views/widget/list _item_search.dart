@@ -42,7 +42,7 @@ class ListItemsSearch extends GetView<HomeContrllerImp> {
                     title: Text(
                       translateDataBase(
                         searchItem[index].itemNameAr, searchItem[index].itemName),),
-                        subtitle: Text(searchItem[index].cName),
+                        subtitle: Text(searchItem[index].cName!),
                   ))
                        ]),
              ),
