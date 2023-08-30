@@ -14,6 +14,7 @@ class ItemsModel {
   String ?cName;
   int favorite ;
   String itemPriceDiscound;
+
   ItemsModel(
       {
         required this.favorite,
@@ -30,7 +31,8 @@ class ItemsModel {
          required this.itemDescound,
          required this.itemDate,
          required this.itemC,
-         required this.itemPriceDiscound
+         required this.itemPriceDiscound,
+         
          });
 
 factory ItemsModel.fromjsone(Map<String, dynamic> json)
@@ -52,6 +54,7 @@ factory ItemsModel.fromjsone(Map<String, dynamic> json)
     itemDescound : json['item_descound'],
     itemDate : json['item_date'],
     itemC : json['item_c'],
+    
     );
    
     

@@ -10,8 +10,10 @@ class CustomAppBar extends GetView<HomeScreenControllerImp> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
+               height: 80,
+               padding: EdgeInsets.symmetric(vertical: 10),
               shape: CircularNotchedRectangle(),
-              notchMargin: 10,
+              notchMargin: 15,
               child: Row(
                 children: [
                   ...List.generate(controller.listPage.length + 1, (index) {

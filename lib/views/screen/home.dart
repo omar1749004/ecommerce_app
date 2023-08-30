@@ -39,8 +39,8 @@ class HomePage extends StatelessWidget {
           :  Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
-             if(controller.setting["setting_title"] !=null)
-               CustomCardHome(title: controller.setting["setting_title"], body: controller.setting["setting_body"]),
+               CustomCardHome(title: controller.titleNameCart, 
+               body: controller.bodyeNameCart),
             CustomeTitleHome(title: "Categories",),
              SizedBox(height: 20,),
             ListCategories(),

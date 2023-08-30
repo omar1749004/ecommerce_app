@@ -16,10 +16,11 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeScreenControllerImp>(
       builder: ((controller) => Scaffold(
             floatingActionButton: FloatingActionButton(
+              
               onPressed: () {
                 Get.toNamed(Cart.cartId); 
               },
-              child: Icon(Icons.shopping_basket_outlined),
+              child: Icon(Icons.shopping_basket_outlined,color: Colors.white,),
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,

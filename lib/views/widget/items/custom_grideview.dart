@@ -46,6 +46,13 @@ class CustomGridView extends GetView<ItemsControllerImp> {
                           Text("Rating 3.5",style: TextStyle(color: Colors.grey[900]),),
                           Row(children: [...List.generate(5, (index) => Icon(Icons.star_rate,size:15,))
                         ]),]),
+                         Row(
+                            
+                            children: [
+                           
+                               Icon(Icons.timer_outlined,size: 20,),
+                             Text(" ${controller.time} Mintue",style: TextStyle(color: Colors.grey[900],fontSize: 16),),
+                            ]),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [

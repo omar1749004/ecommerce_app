@@ -23,6 +23,7 @@ class ItemsControllerImp extends ItemsController
    late StatusRequst statusRequs;
    List<ItemsModel> items =[];
   MyServices myServices =Get.find();
+  String time  = ""  ;
 
 @override
   void onInit() {
@@ -32,7 +33,7 @@ class ItemsControllerImp extends ItemsController
   }
    @override
   initialData() {
-    
+   time = myServices.sharedPreferences.getString("deliveryTime")! ;
    categories = Get.arguments["categories"];
    selectCar = Get.arguments["selectedCat"];
    categoriyId = Get.arguments["categoryId"];

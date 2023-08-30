@@ -24,7 +24,9 @@ class HomeContrllerImp extends HomeContrller
      List<ItemsModel> items =[];
      Map setting = {};
  late StatusRequst statusRequs;
-
+    String titleNameCart ="" ;
+    String bodyeNameCart = "";
+    String delivryTime ="" ;
 @override
   getData()async {
      statusRequs = StatusRequst.loading;
@@ -56,6 +58,10 @@ class HomeContrllerImp extends HomeContrller
 
       }
       setting = res["setting"]["data"][0] ;
+      titleNameCart = setting["setting_title"];
+      bodyeNameCart = setting["setting_body"];
+      delivryTime = setting["setting_deliverytime"].toString();
+      myServices.sharedPreferences.setString("deliveryTime", delivryTime);
       statusRequs =StatusRequst.sucsess;
       
      }else{
@@ -71,7 +77,6 @@ class HomeContrllerImp extends HomeContrller
 
 initialData(){
   lang =myServices.sharedPreferences.getString("lang");
-  
   
 }
    
@@ -106,6 +111,7 @@ class SearchMixController extends GetxController{
   List<ItemsModel> searchItem =[];
   TextEditingController? search;
  bool isSearch = false;
+ 
   checkSearch(String val)
   {
     if(val.isEmpty)
