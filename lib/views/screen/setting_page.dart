@@ -33,15 +33,11 @@ class Settings extends StatelessWidget {
             
           ]),)
         ]),
-        SizedBox(height: 70,),
+        SizedBox(height: 60,),
          Container(
           padding: EdgeInsets.symmetric(horizontal: 10),
            child: Card(child: Column(children: [
-            ListTile(title: Text("Disable Notifycation"),
-            onTap: (){},
-              trailing: Switch(onChanged:(value){},value: false,  )
-              ),
-            Divider(),
+            
              ListTile(title: Text("Orders"),
              onTap: (){
               Get.toNamed(OrdersPending.ordersPendingid);

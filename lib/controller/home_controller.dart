@@ -74,7 +74,7 @@ initialData(){
   
   
 }
-
+   
   @override
   void onInit() {
     initialData();
@@ -95,7 +95,6 @@ initialData(){
     });
   }
   gotoProductDetails(ItemsModel itemsModel) {
-    print(itemsModel.itemPriceDiscound);
     Get.toNamed(ProductDetails.productDetailsId,arguments: {
         "itemsModel"  : itemsModel
     });

@@ -24,12 +24,17 @@ class ListItemHome extends GetView<HomeContrllerImp> {
   }
 }
 
-class ItemHome extends StatelessWidget {
+class ItemHome extends GetView<HomeContrllerImp> {
   const ItemHome({super.key, required this.items});
    final ItemsModel items;
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return
+             InkWell(
+            onTap: (){
+              controller.gotoProductDetails(items);
+            },
+            child: Stack(
                   children: [
                    Container(
                     padding: EdgeInsets.symmetric(horizontal:20),
@@ -56,6 +61,6 @@ class ItemHome extends StatelessWidget {
                     fontSize: 17,
                     color: Colors.white)))
                   ],
-                );
+                ));
   }
 }
