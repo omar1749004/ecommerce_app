@@ -69,7 +69,7 @@ class CheckoutControllerImp extends CheckoutController
       
      }else{
       
-      statusRequs = StatusRequst.failure;
+      statusRequs =StatusRequst.sucsess;
      }  
     }
    update(); 
@@ -77,8 +77,7 @@ class CheckoutControllerImp extends CheckoutController
 
  cheackout()async
   {
-     statusRequs = StatusRequst.loading;
-      update();
+    
       
   if(await checkinternet() )
   {   
@@ -86,8 +85,10 @@ class CheckoutControllerImp extends CheckoutController
     return Get.snackbar("woring", "please chouse payment methode");
      if(deliveryType == null )
     return Get.snackbar("woring", "please chouse order type");
-     if(deliveryType == "0" && addressid ==0)
-    return Get.snackbar("woring", "please chouse order type");
+     if(deliveryType == "0" &&  addressid== 0)
+    return Get.snackbar("woring", "please chouse address");
+     statusRequs = StatusRequst.loading;
+      update();
      var res = await CheckoutData().checkout(
       {
         "userid" : myServices.sharedPreferences.getString("id"),

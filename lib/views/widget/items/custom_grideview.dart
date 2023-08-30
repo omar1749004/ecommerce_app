@@ -63,11 +63,8 @@ class CustomGridView extends GetView<ItemsControllerImp> {
                               ),
                              GetBuilder<FavoriteControllerImp>(builder: (controller)=> IconButton(
                                   onPressed: () {
-                                    
-                                   
                                     if(controller.isFavorite[itemModel.itemId]== 0)
                                     {
-                                       
                                       controller.addFavorite(itemModel.itemId.toString());
                                       controller.setFavorite(itemModel.itemId, 1);
                                     }
@@ -82,7 +79,8 @@ class CustomGridView extends GetView<ItemsControllerImp> {
                                     : Icons.favorite,
                                     color:controller.isFavorite[itemModel.itemId] == 0?
                                      Colors.black:Colors.red,
-                                    )))
+                                    )
+                                    ))
                             ],
                           )
                         ]),

@@ -54,9 +54,9 @@ class AdressAddDetailsControllerImp extends AdressAddDetailsController
      {
       statusRequs = StatusRequst.failure;
      }else{
-      
       statusRequs =StatusRequst.sucsess;
        Get.offAllNamed(HomePage.homepageId);
+       Get.snackbar("woring", "Now you can order to this address");
      }
      
   }

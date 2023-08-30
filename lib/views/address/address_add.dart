@@ -13,7 +13,7 @@ class AddressAdd extends StatelessWidget {
     Get.put(AdressControllerImp());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add New Address"),
+        title: Text("Add New Address",style: TextStyle(fontSize: 22),),
         backgroundColor: Colors.red,
       ),
       body: Container(

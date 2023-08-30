@@ -14,6 +14,7 @@ class CustomAppBar extends GetView<HomeScreenControllerImp> {
                padding: EdgeInsets.symmetric(vertical: 10),
               shape: CircularNotchedRectangle(),
               notchMargin: 15,
+
               child: Row(
                 children: [
                   ...List.generate(controller.listPage.length + 1, (index) {

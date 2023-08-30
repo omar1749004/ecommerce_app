@@ -2,6 +2,7 @@ import 'package:e_commerce_app/controller/checkout_controller.dart';
 import 'package:e_commerce_app/core/class/handle_data.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
 import 'package:e_commerce_app/core/constant/image_asset.dart';
+import 'package:e_commerce_app/views/address/address_add.dart';
 import 'package:e_commerce_app/views/widget/cart/custom_cart_bottom.dart';
 import 'package:e_commerce_app/views/widget/checkout/card_adress.dart';
 import 'package:e_commerce_app/views/widget/checkout/card_dalivery_type.dart';
@@ -74,12 +75,20 @@ class CheckOut extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            if(contrller.dataAdress.isNotEmpty)
           Text("Shipping Adress", style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
           color: ColorApp.secondColor),),
           SizedBox(height: 10,),
-          
+          if(contrller.dataAdress.isEmpty)
+          InkWell(
+            onTap: (){Get.toNamed(AddressAdd.addressAddid);},
+            child: Container(child: Center(child: Text("please Add shiping Asress \n click here",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: ColorApp.KPrimaryColor,fontWeight: FontWeight.bold),
+            )),),
+          ),
             ...List.generate(contrller.dataAdress.length, (index) => 
             InkWell(
               onTap: (){contrller.chouseAddressid(contrller.dataAdress[index].addressid);},
