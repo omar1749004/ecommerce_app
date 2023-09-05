@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenControllerImp());
     return GetBuilder<HomeScreenControllerImp>(
       builder: ((controller) => Scaffold(
+            extendBody: true,
             floatingActionButton: FloatingActionButton(
               
               onPressed: () {

@@ -24,6 +24,7 @@ getData()async
      {
        statusRequs =StatusRequst.sucsess;
      }else{
+      print("hello");
       statusRequs =StatusRequst.sucsess;
       for(int i =0;i< res["data"].length;i++)
       {

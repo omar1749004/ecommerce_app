@@ -5,6 +5,7 @@ import 'package:e_commerce_app/data/models/addres_model.dart';
 import 'package:e_commerce_app/data/service/remote/address_data.dart';
 import 'package:e_commerce_app/data/service/remote/checkout_data.dart';
 import 'package:e_commerce_app/views/screen/home.dart';
+import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -130,4 +131,74 @@ class CheckoutControllerImp extends CheckoutController
    getShippingAddress();
     super.onInit();
   }
+
+
+
+  paypalCheckout(){
+     PaypalCheckout(
+                sandboxMode: true,
+                clientId: "ATTKK3s-dFeKdTAzNuTJa_aoYr7FD0IK_ir7IN5isyt94e8muqAwdfWeGExbrEilNTUbGlskv4CHg6WQ",
+                secretKey: "EOVdYoT2cd-EuXimOgHaYoJKMWkHxTLHKLj8pGAEKO0UgtT3_CMMtWRlDD3J1DBPGDyAWkRxicxldpXu",
+                returnURL: "success.snippetcoder.com",
+                cancelURL: "cancel.snippetcoder.com",
+                transactions: const [
+                  {
+                    "amount": {
+                      "total": '70',
+                      "currency": "USD",
+                      "details": {
+                        "subtotal": '70',
+                        "shipping": '0',
+                        "shipping_discount": 0
+                      }
+                    },
+                    "description": "The payment transaction description.",
+                    // "payment_options": {
+                    //   "allowed_payment_method":
+                    //       "INSTANT_FUNDING_SOURCE"
+                    // },
+                    "item_list": {
+                      "items": [
+                        {
+                          "name": "Apple",
+                          "quantity": 4,
+                          "price": '5',
+                          "currency": "USD"
+                        },
+                        {
+                          "name": "Pineapple",
+                          "quantity": 5,
+                          "price": '10',
+                          "currency": "USD"
+                        }
+                      ],
+
+                      // shipping address is not required though
+                      //   "shipping_address": {
+                      //     "recipient_name": "Raman Singh",
+                      //     "line1": "Delhi",
+                      //     "line2": "",
+                      //     "city": "Delhi",
+                      //     "country_code": "IN",
+                      //     "postal_code": "11001",
+                      //     "phone": "+00000000",
+                      //     "state": "Texas"
+                      //  },
+                    }
+                  }
+                ],
+                note: "Contact us for any questions on your order.",
+                onSuccess: (Map params) async {
+                 
+                },
+                onError: (error) {
+                  print("onError: $error");
+                  
+                },
+                onCancel: () {
+                 
+                },
+              );
+  }
+
 }

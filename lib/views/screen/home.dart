@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
 
     return 
       Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: EdgeInsets.symmetric(horizontal: 16,),
         child: ListView(
           children: [
             CustomAppBar(titlAppbar: "Find Product", onPressedIconeFavorite: (){
