@@ -73,7 +73,7 @@ class Api {
       required File file
       })async{
         var request =
-        await http.MultipartRequest("POST" , Uri.parse(uri));
+         http.MultipartRequest("POST" , Uri.parse(uri));
         var length = await file.length();
         var stream = http.ByteStream(file.openRead());
         var multipartfile =http.MultipartFile(

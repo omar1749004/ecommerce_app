@@ -9,7 +9,11 @@
     {
       return true;
     }
-    else return false;
+    else 
+    {
+        return false;
+    }
+    
   }on SocketException catch (_)
   {
     return false;

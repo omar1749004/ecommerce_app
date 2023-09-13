@@ -9,7 +9,7 @@ import '../widget/onbording_widget/customPadgeView.dart';
 
 class OnBoarding extends StatelessWidget {
   const OnBoarding({super.key});
-   static final String onboardingId = "/onBoarding";
+   static const String onboardingId = "/onBoarding";
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImp());

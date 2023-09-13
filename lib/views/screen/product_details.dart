@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../controller/product_details_contrroler.dart';
 import '../widget/product_details/backgound_product.dart';
 import '../widget/product_details/price_andanount.dart';
-import '../widget/product_details/supitem_list.dart';
+
 
 class ProductDetails extends StatelessWidget {
   const ProductDetails({super.key});

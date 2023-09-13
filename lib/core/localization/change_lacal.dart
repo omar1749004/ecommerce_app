@@ -1,12 +1,10 @@
-import 'dart:ui';
-
 import 'package:e_commerce_app/core/constant/app_theme.dart';
 import 'package:e_commerce_app/core/functions/fcmconfig.dart';
 import 'package:e_commerce_app/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+
 
 class LocalController extends GetxController
 {
@@ -17,7 +15,7 @@ class LocalController extends GetxController
   changeLang(String languageCode)
   {
     Locale locale =Locale(languageCode);
-    myServices.sharedPreferences.setString("lang", "$languageCode");
+    myServices.sharedPreferences.setString("lang", languageCode);
     apptheme =languageCode =="ar"? themeArabic:themeEnglish;
     Get.changeTheme(apptheme);
     Get.updateLocale(locale);
