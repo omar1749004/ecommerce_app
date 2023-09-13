@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../core/class/handle_data.dart';
-import '../widget/custome_appbar.dart';
+// import '../widget/custome_appbar.dart';
 import '../widget/myfavorite/custome_favorite_item.dart';
 
 class MyFavorite extends StatelessWidget {

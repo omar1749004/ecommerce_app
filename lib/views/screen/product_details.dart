@@ -83,14 +83,14 @@ class ProductDetails extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Text(
-                    "Color",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CustomSupItem(),
+                  // Text(
+                  //   "Color",
+                  //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  // ),
+                  // const SizedBox(
+                  //   height: 10,
+                  // ),
+                  // CustomSupItem(),
                 ],
               ),
             ),

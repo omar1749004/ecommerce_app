@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/controller/adress/adress_controller.dart';
 import 'package:e_commerce_app/core/class/handle_data.dart';
+import 'package:e_commerce_app/core/constant/color.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,7 @@ class AddressAdd extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Add New Address",style: TextStyle(fontSize: 22),),
-        backgroundColor: Colors.red,
+        backgroundColor: ColorApp.KPrimaryColor,
       ),
       body: Container(
         child: GetBuilder<AdressControllerImp>(
@@ -25,8 +26,8 @@ class AddressAdd extends StatelessWidget {
                   Expanded(
                       child: OpenStreetMapSearchAndPick(
                           center: controller.latLong,
-                          buttonColor: Colors.red,
-                          locationPinIconColor: Colors.red,
+                          buttonColor: ColorApp.KPrimaryColor,
+                          locationPinIconColor: ColorApp.KPrimaryColor,
                           locationPinTextStyle: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
                           onGetCurrentLocationPressed: () =>
                               controller.getCurrentLocation(),

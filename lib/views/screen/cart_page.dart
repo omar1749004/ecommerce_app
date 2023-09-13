@@ -66,13 +66,14 @@ class Cart extends StatelessWidget {
                             Expanded(
                               flex: 3,
                               child: TextFormField(
+                                
                                 controller: controller.coupon!,
                                 decoration:const InputDecoration(
-
+                                  
                                   hintText: "Coupon Code",
                                   hintStyle: TextStyle(),
                                   isDense: true,
-                                  contentPadding: EdgeInsets.symmetric(vertical:8,horizontal: 5),
+                                  contentPadding: EdgeInsets.symmetric(vertical:6,horizontal: 5),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.zero
                                   )
