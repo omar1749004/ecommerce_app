@@ -50,3 +50,9 @@ const String linkRatingOrder ="$linkServerName/orders/rating_order.php";
 const String linkNotifi ="$linkServerName/notification.php";
 //offers
 const String linkOffer ="$linkServerName/offer_page.php";
+
+//paymob
+  //api key
+const String apiKeyPaymob ="ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0o5LmV5SmpiR0Z6Y3lJNklrMWxjbU5vWVc1MElpd2ljSEp2Wm1sc1pWOXdheUk2T1RNM016STBMQ0p1WVcxbElqb2lNVFk1T1RRME1UYzFOUzR4TnpBMk16WWlmUS41dkEzQzZHeE1PRmxmQ1hxTjYzUldUbE5xQ0NUME9sbEVObXA1THJIaUloM0lGclJiUXJ6ZTllQVFnM3JQamlNUExadk5VSUFOWEI1a19lU0VjSEZXQQ==" ;
+const String intagrationCardId = "4327079" ;
+const String intagrationWalletsId = "4331414" ;

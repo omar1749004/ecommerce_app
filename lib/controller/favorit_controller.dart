@@ -46,7 +46,7 @@ class FavoriteControllerImp extends FavoriteController
      {
 
      
-       Get.rawSnackbar(title: "notfy" ,messageText: Text("item  is added from favorite"));
+       Get.rawSnackbar(title: "notfy" ,messageText:const Text("item  is added from favorite"));
       statusRequs =StatusRequst.sucsess;
 
      }else{

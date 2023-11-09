@@ -14,8 +14,7 @@ class Settings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SettingsControllerImp controller = Get.put(SettingsControllerImp());
-    return  Container(
-      child: ListView(
+    return   ListView(
         children:[ Stack(
           clipBehavior: Clip.none,
           alignment: Alignment.center,
@@ -79,7 +78,7 @@ class Settings extends StatelessWidget {
                  )
                  ,),
          )
-      ]),
+      ]
     );
   }
 }

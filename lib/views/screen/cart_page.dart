@@ -2,6 +2,7 @@
 import 'package:e_commerce_app/controller/cart_controller.dart';
 import 'package:e_commerce_app/core/class/handle_data.dart';
 import 'package:e_commerce_app/core/constant/color.dart';
+import 'package:e_commerce_app/core/constant/styles.dart';
 import 'package:e_commerce_app/views/widget/cart/custom_cottom_coupon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,9 +20,7 @@ class Cart extends StatelessWidget {
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
         title: Text("My Cart",
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 25, fontWeight: FontWeight.w700),),
+        style: Styles.style25),
         backgroundColor: Colors.grey[50],
       ),
       bottomNavigationBar:GetBuilder<CartControllerImp>(builder: (controller) =>

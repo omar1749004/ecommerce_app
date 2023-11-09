@@ -15,7 +15,7 @@ import '../../widget/auth/text_move.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
-  static final String signUpId = "/signUp";
+  static const String signUpId = "/signUp";
   @override
   Widget build(BuildContext context) {
 Get.put(SignUpControllerImp());

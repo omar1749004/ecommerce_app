@@ -37,9 +37,10 @@ class Api {
    Future<dynamic>  post(
       {required String uri,
       required Map body,
-       String? token
+       String? token,
+        Map<String,String> headers = const {}  ,
       }) async {
-    Map<String, String> headers = {};
+    //Map<String, String> headers = {};
 
     if (token != null) {
       headers.addAll(
@@ -49,7 +50,7 @@ class Api {
     
      try {
   http.Response response =
-     await http.post(Uri.parse(uri), body: body ,headers: myheaders);
+     await http.post(Uri.parse(uri), body: body ,headers: headers);  //myheaders
      
      if(response.statusCode == 200 || response.statusCode == 201){
       
@@ -61,6 +62,40 @@ class Api {
       
         throw Exception(
        "there id problem with status code${response.statusCode} with body${jsonDecode(response.body)}");
+    
+      }
+} catch (e) {
+  print(e);
+}
+      }
+ Future<dynamic>  postJsonType(
+      {required String uri,
+      required  body,
+       String? token,
+        Map<String,String> headers = const {}  ,
+      }) async {
+    //Map<String, String> headers = {};
+
+    if (token != null) {
+      headers.addAll(
+        {"Authorization": "Bearer $token"},
+      );
+    }
+    
+     try {
+  http.Response response =
+     await http.post(Uri.parse(uri), body: jsonEncode(body) ,headers: headers);  //myheaders
+     
+     if(response.statusCode == 200 || response.statusCode == 201){
+      
+    Map data =jsonDecode(response.body);
+    
+    return data;
+     }
+     else{
+      
+        throw Exception(
+       "there id problem with status code ${response.statusCode} with body ${jsonDecode(response.body)}");
     
       }
 } catch (e) {

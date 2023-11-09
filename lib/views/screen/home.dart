@@ -15,7 +15,7 @@ import 'myfavorite.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-  static final String homepageId = "/homepageId";
+  static const String homepageId = "/homepageId";
   @override
   Widget build(BuildContext context) {
   HomeContrllerImp controller=  Get.put(HomeContrllerImp());

@@ -3,8 +3,7 @@ import 'package:e_commerce_app/data/service/static/static.dart';
 import 'package:e_commerce_app/views/screen/auth/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+
 
 abstract class OnBoeardingController extends GetxController
 {

@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,5 +28,6 @@ class MyServices extends GetxService
  
 intialService() async
 {
+   Stripe.publishableKey = "stripePublishableKey";
   await Get.putAsync(() => MyServices().intial());
 }

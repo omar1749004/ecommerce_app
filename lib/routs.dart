@@ -21,7 +21,9 @@ import 'package:e_commerce_app/views/screen/onboarding.dart';
 import 'package:e_commerce_app/views/screen/orders/archive.dart';
 import 'package:e_commerce_app/views/screen/orders/details.dart';
 import 'package:e_commerce_app/views/screen/orders/pending.dart';
+import 'package:e_commerce_app/views/screen/payment_details.dart';
 import 'package:e_commerce_app/views/screen/product_details.dart';
+import 'package:e_commerce_app/views/screen/success_payment.dart';
 
 import 'package:get/get.dart';
 
@@ -58,6 +60,8 @@ GetPage(name: AddressAdd.addressAddid, page: ()=> const AddressAdd()),
 GetPage(name: AdressAddDetails.adressAddDetailsid, page: ()=> const AdressAddDetails()),
 //checkout
 GetPage(name: CheckOut.checkOutid, page: ()=> const CheckOut()),
+GetPage(name: PaymentDatails.paymentDatailsId, page: ()=> const PaymentDatails()),
+GetPage(name: SuccessPayment.successPaymentId, page: ()=> const SuccessPayment()),
 //orders 
 GetPage(name: OrdersPending.ordersPendingid, page: ()=> const OrdersPending()),
 GetPage(name: OrderDetails.orderDetailsid, page: ()=> const OrderDetails()),

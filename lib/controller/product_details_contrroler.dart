@@ -90,7 +90,7 @@ class ProductDetailsControllerImp extends ProductDetailsController
      else if(res["status"] =="success")
      {
  
-       Get.rawSnackbar(title: "notfy" ,messageText: Text("item  is removed from Cart"));
+       Get.rawSnackbar(title: "notfy" ,messageText:const Text("item  is removed from Cart"));
       
       statusRequs =StatusRequst.sucsess;
 

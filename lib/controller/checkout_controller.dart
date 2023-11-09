@@ -1,13 +1,18 @@
+
+
 import 'package:e_commerce_app/core/class/statuscode.dart';
 import 'package:e_commerce_app/core/functions/checkinternet.dart';
 import 'package:e_commerce_app/core/services/services.dart';
 import 'package:e_commerce_app/data/models/addres_model.dart';
 import 'package:e_commerce_app/data/service/remote/address_data.dart';
 import 'package:e_commerce_app/data/service/remote/checkout_data.dart';
+import 'package:e_commerce_app/data/service/remote/paymob/paymob_manager.dart';
 import 'package:e_commerce_app/views/screen/home.dart';
+import 'package:e_commerce_app/views/widget/checkout/payment_bottom_sheet.dart';
+
 import 'package:flutter_paypal_checkout/flutter_paypal_checkout.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 abstract class CheckoutController extends GetxController{
 
@@ -18,6 +23,7 @@ class CheckoutControllerImp extends CheckoutController
   
   String? paymentMethod ;
   String? deliveryType ;
+  int? paymentIndex ;
   int addressid = 0;
   List<AddresModels> dataAdress =[];
   MyServices myServices  =Get.find();
@@ -26,6 +32,10 @@ class CheckoutControllerImp extends CheckoutController
    String discoundCoupon ="0";
   late String priceorder ;
    
+     selectPayMethod(int val){
+    paymentIndex =val ;
+    update();
+  }
   chousePaymentMethod(String val)
   {
      paymentMethod =val ;
@@ -43,6 +53,7 @@ class CheckoutControllerImp extends CheckoutController
   }
   getShippingAddress()async
   {
+   
      statusRequs = StatusRequst.loading;
       update();
       
@@ -56,6 +67,7 @@ class CheckoutControllerImp extends CheckoutController
       {
         
         statusRequs = StatusRequst.failure;
+        update(); 
         
       }
      else if(res["status"] =="success")
@@ -76,20 +88,57 @@ class CheckoutControllerImp extends CheckoutController
    update(); 
   }
 
- cheackout()async
-  {
+ cheackout()async{
     
       
   if(await checkinternet() )
   {   
     if(paymentMethod == null )
-    return Get.snackbar("woring", "please chouse payment methode");
+    {
+        return Get.snackbar("woring", "please chouse payment methode");
+    }
      if(deliveryType == null )
-    return Get.snackbar("woring", "please chouse order type");
-     if(deliveryType == "0" &&  addressid== 0)
-    return Get.snackbar("woring", "please chouse address");
-     statusRequs = StatusRequst.loading;
-      update();
+     {
+       return Get.snackbar("woring", "please chouse order type");
+     }
+    
+     if(deliveryType == "0" &&  addressid== 0) 
+     { 
+        return Get.snackbar("woring", "please chouse address");
+     }
+   
+    
+   if(paymentMethod != "0"){
+        
+     paymentBotoomSheet(() async{
+      if(paymentIndex == null) {
+        print("hello");
+      }else{
+        statusRequs =StatusRequst.loading;
+        String paymentKey = await PaymobManger().getPaymentkeyFristThreeStep(10, "EGP") ;
+        if(paymentKey == "error"){
+          statusRequs = StatusRequst.failure;
+        }else {
+          if(paymentIndex == 0){
+             statusRequs =StatusRequst.sucsess;
+          
+             payCard(paymentKey) ;
+          }else{
+             statusRequs =StatusRequst.sucsess;
+             
+             String url = await PaymobManger().mobileWallets(authToken: paymentKey) ;
+             payWallet(url) ;
+          }
+         
+        } 
+      }
+     }) ;
+  //   statusRequs =StatusRequst.sucsess;
+  // update(); 
+
+    }
+else{
+  
      var res = await CheckoutData().checkout(
       {
         "userid" : myServices.sharedPreferences.getString("id"),
@@ -120,9 +169,17 @@ class CheckoutControllerImp extends CheckoutController
       Get.snackbar("woring", "please try agine");
       statusRequs = StatusRequst.non;
      }  
-    }
-   update(); 
+     
+     update(); 
+   
   }
+
+  }
+  
+ }
+
+
+
   @override
   void onInit() {
     copounid = Get.arguments["cpouponid"].toString();
@@ -133,7 +190,23 @@ class CheckoutControllerImp extends CheckoutController
   }
 
 
+//paymob
 
+//card
+Future<void> payCard(String paymentKey)async{
+  launchUrl(
+
+    Uri.parse("https://accept.paymob.com/api/acceptance/iframes/798983?payment_token=$paymentKey")
+  );
+}
+// Mobile Wallets
+Future<void> payWallet(String url)async{
+  
+  launchUrl(
+
+    Uri.parse(url) 
+  );
+}
   paypalCheckout(){
      PaypalCheckout(
                 sandboxMode: true,

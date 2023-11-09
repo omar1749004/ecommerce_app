@@ -15,10 +15,10 @@ class CusttomControler extends StatelessWidget {
       ...List.generate(
         onBoardingList.length,
         (index) => AnimatedContainer(
-          duration: Duration(
+          duration:const Duration(
             milliseconds: 200,
           ),
-          margin: EdgeInsets.only(right: 5),
+          margin:const EdgeInsets.only(right: 5),
           width: controller.currentpage ==index ?20 :5,
           height: 6,
           decoration: BoxDecoration(
