@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/class/api.dart';
 import 'package:e_commerce_app/link_api.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PaymobManger {
  final  String _uri = "https://accept.paymob.com/api" ;
@@ -72,7 +73,7 @@ class PaymobManger {
           
           "expiration": 3600,   //amount second token avilble
           "order_id": orderId,
-          "integration_id": intagrationWalletsId,
+          "integration_id": intagrationCardId,
 
           "amount_cents": cents,
           "currency": currency,
@@ -100,6 +101,21 @@ class PaymobManger {
         });
         return res["token"] ;
   }
+  ////card
+  Future<void> payCard(String paymentKey)async{
+  launchUrl(
+
+    Uri.parse("https://accept.paymob.com/api/acceptance/iframes/798983?payment_token=$paymentKey")
+  );
+}
+// Mobile Wallets
+Future<void> payWallet(String url)async{
+  
+  launchUrl(
+
+    Uri.parse(url) 
+  );
+}
    Future<String> mobileWallets({
     required authToken
    }) async{

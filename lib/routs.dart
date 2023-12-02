@@ -69,8 +69,9 @@ GetPage(name: OrdersArchive.ordersArchiveid, page: ()=> const OrdersArchive()),
 
 //notification
 GetPage(name: NotificationPage.notificationId, page: ()=> const NotificationPage()),
-// offer page
+//paymob 
 
+GetPage(name: SuccessPayment.successPaymentId, page: ()=> const SuccessPayment()),
   
 
 
